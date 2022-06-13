@@ -82,7 +82,7 @@ const dailyData =  {
   });
 
   // Doughnut Chart
-const mobileCanvas = document.getElementById('#mobile-users-chart');
+const mobileCanvas = document.getElementById('mobile-users-chart');
 
 const mobileData = {
     labels: ["Desktop", "Tablet", "Phones"],
