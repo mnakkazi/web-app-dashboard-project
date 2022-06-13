@@ -5,7 +5,6 @@ Base Styles
     box-sizing: border-box;
 }
 .grid-container {
-    background-color: rgb(236, 236, 237);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
@@ -14,26 +13,23 @@ Base Styles
         'nav'
         'main';
 }
-header {
-    grid-area: header;
-    background-color: rgba(108, 196, 237, .8);
-}
-nav {
-    grid-area: nav;
-    background-color: rgba(8, 75, 107, 0.8);
-}
-main {
+.main {
     grid-area: main;
 }
 .flex {
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
+}
+.flex-align {
     align-items: center;
 }
+.flex-row {
+    flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+}
 .icon-size {
-    width: 10%;
+    width: 8%;
 }
 .img-size {
     width: 15%;
@@ -41,10 +37,186 @@ main {
 .round-image {
     border-radius: 50%;
 }
+.white-fill {
+    fill: rgb(247, 245, 245);
+}
+.white {
+    color: rgb(247, 245, 245);
+}
+.field {
+    background-color: rgba(238, 238, 238, 0.5);
+    border: 2px solid rgba(227, 227, 227, 0.5);
+    border-radius: 5px;
+}
 
-/* ---------------------
-Media Queries 
------------------------*/
+/* ------------------------------------------
+Header
+-------------------------------------------*/
+.header {
+    grid-area: header;
+    background-color: rgba(108, 196, 237, .8);
+    justify-content: space-evenly;
+}
+h1 {
+    font-size: 1.5em;
+}
+.bell-icon {
+    width: 5%;
+    margin-left: 4rem;
+}
+.name {
+    margin-right: .5rem;
+}
+h1, .user-image {
+    margin-left: .5rem;
+}
+.main-header, .tab, .section-head, ul li {
+    margin-left: 1rem;
+}
+
+/* ------------------------------------------
+Nav and Dashbord 
+-------------------------------------------*/
+.nav {
+    grid-area: nav;
+    background-color: rgba(8, 75, 107, 0.8);
+    justify-content: center;
+}
+.nav-icon {
+    margin: 1rem;
+}
+.tab {
+    border: 2px solid rgba(167, 160, 160, 0.8);
+    border-radius: 5px;
+    padding: 2rem 4rem;
+}
+.alert-banner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#alert {
+    font-size: 1em;
+    background-color: rgba(26, 101, 136, 0.8);
+    padding: .5rem 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+.alert-banner-close {
+    margin-left: 2.5rem;
+}
+
+/* ------------------------------------------
+Charts 
+-------------------------------------------*/
+.section-head {
+    text-transform: uppercase;
+}
+ul {
+    padding: 0;
+}
+ul li {
+    list-style: none;
+    font-weight: bold;
+}
+ul li:hover {
+    background-color: lightpink;
+    color: #777;
+    padding: .5rem;
+    border-radius: 40%;
+}
+/* ------------------------------------------
+Social Stats 
+-------------------------------------------*/
+.social-stats {
+    flex-wrap: wrap;
+}
+.social-box {
+    padding: .2rem;
+    margin: .5rem 1rem;
+    justify-content: flex-start;
+}
+.social {
+    background-color: rgba(26, 101, 136, 0.8);
+    padding: .8rem;
+    margin: 1rem .8rem;
+    border-radius: 44%;
+}
+.social-name {
+    font-size: 1.5em;
+}
+.social-data {
+    font-size: 2.5rem;
+}
+.social-name, .social-data {
+    margin: 0 1rem;
+    padding-top: .2rem;
+}
+
+/* ------------------------------------------
+New Members and Recent Activity 
+-------------------------------------------*/
+.members {
+    margin: auto;
+    width: 85%;
+    text-align: center;
+}
+.members div p {
+    margin: .2rem;
+    padding: .2rem;
+}
+.members a {
+    text-decoration: none;
+    color: rgba(26, 101, 136, 0.8);
+}
+hr {
+    margin: .5rem 1rem;
+    background-color: rgba(227, 227, 227, 0.8);
+    border: none;
+    height: 3px;
+}
+
+/* ------------------------------------------
+Message and Settings
+-------------------------------------------*/
+form, .settings {
+    margin: 1rem;
+}
+.form-field {
+    padding: .8rem 1rem 1.5rem;
+}
+textarea, .label {
+    margin: .8rem 0;
+}
+.button {
+    margin: 0;
+    padding: 1rem;
+    background-color: rgba(26, 101, 136, 0.8);
+    border-radius: 6px;
+    border: none;
+}
+.settings-head {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+.toggle {
+    justify-content: space-between;
+}
+select {
+    padding: 1.1rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+#cancel {
+    background-color: rgba(100, 97, 97, 0.8);
+}
+#save, #cancel {
+    width: 49%;
+}
+
+/* ----------------------
+Media Queries
+------------------------*/
 @media screen and (min-width: 768px) {
     .grid-container {
         grid-template-columns: 55px 1fr;
