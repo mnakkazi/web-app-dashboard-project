@@ -86,9 +86,10 @@ Nav and Dashbord
     margin: 1rem;
 }
 .tab {
-    border: 2px solid rgba(167, 160, 160, 0.8);
-    border-radius: 5px;
-    padding: 2rem 4rem;
+    border: 2px solid rgba(212, 210, 210, 0.8);
+    border-top: none;
+    border-right: none;
+    width: 90%;
 }
 .alert-banner {
     display: inline-flex;
@@ -128,9 +129,6 @@ ul li:hover {
 /* ------------------------------------------
 Social Stats 
 -------------------------------------------*/
-.social-stats {
-    flex-wrap: wrap;
-}
 .social-box {
     padding: .2rem;
     margin: .5rem 1rem;
@@ -139,8 +137,8 @@ Social Stats
 .social {
     background-color: rgba(26, 101, 136, 0.8);
     padding: .8rem;
-    margin: 1rem .8rem;
-    border-radius: 44%;
+    margin: .8rem;
+    border-radius: 46%;
 }
 .social-name {
     font-size: 1.5em;
