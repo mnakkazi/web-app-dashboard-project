@@ -5,6 +5,7 @@ Base Styles
     box-sizing: border-box;
 }
 .grid-container {
+    max-width: 100vw;
     font-family: 'PT Sans', sans-serif;
     display: grid;
     grid-template-columns: 100%;
@@ -131,6 +132,11 @@ ul li:hover {
     color: #777;
     padding: .5rem;
     border-radius: 40%;
+}
+.traffic-chart-container,
+.daily-chart-container,
+.mobile-chart-container {
+    width: 90%;
 }
 .chrt-margin {
     margin: 0 1rem;
@@ -267,6 +273,15 @@ Media Queries
     ul:last-child {
         flex: -1;
     }
+    .traffic-chart-container {
+        width: 95%;
+    }
+    .daily-chart-container {
+        width: 90%;
+    }
+    .mobile-chart-container {
+        width: 90%;
+    }
     .chrt-margin{
         border: none;
     }
@@ -280,20 +295,20 @@ Media Queries
     }
     .daily {
         border-right: 3px solid rgba(212, 210, 210, 0.8);
-        padding: 1rem;
     }
     .stats-flex-wrapper {
         padding-bottom: 1rem;
         border-bottom: 2px solid rgba(212, 210, 210, 0.8);
     }
     .social-box {
-       margin: 0 .3rem;
+       margin: 0 .5rem;
+       padding-right: .8rem;
     }
     .social {
-        width: 6.5vw;
-        margin: 1rem .2rem;
-        padding: .6rem;
-        border-radius: 30px;
+        width: 5vw;
+        margin: 1.5rem .8rem;
+        padding: .5rem;
+        border-radius: 50%;
     }
     .members {
         width: 88vw;
@@ -342,43 +357,18 @@ Media Queries
         flex: 1;
         margin-left: .8rem;
     }
+    .daily,
+    .mobile-users {
+        padding: .5rem;
+    }
+    .social-name,
+    .social-data {
+        margin: 0 .5rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
     .grid-container {
-        grid-template-columns: 80px 1fr;
-    }
-    .main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .dashboard {
-        font-size: 2em;
-        grid-column: 1 / 3;
-        width: 100%;
-    }
-    .alert-banner {
-        width: 100vw;
-    }
-
-    .traffic, 
-    .social-stats {
-        grid-column: 1 / span 2;
-    }
-    .daily, 
-    .members, 
-    .messages {
-        grid-column: 1 / span 1;
-    }
-    .mobile-users, 
-    .recent-activity, 
-    .settings {
-        grid-column: 2 / span 1;
-    }  
-
-    /* Grouped */
-    h1,
-    .name {
-        font-size: 2.5em;
+        grid-template-columns: 90px 1fr;
     }
 }
