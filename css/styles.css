@@ -68,10 +68,14 @@ h1 {
 .name {
     margin-right: .5rem;
 }
-h1, .user-image {
+h1, 
+.user-image {
     margin-left: .5rem;
 }
-.main-header, .tab, .section-head, ul li {
+.main-header, 
+.tab, 
+.section-head, 
+ul li {
     margin-left: 1rem;
 }
 
@@ -90,14 +94,12 @@ Nav and Dashbord
     border: 2px solid rgba(212, 210, 210, 0.8);
     border-top: none;
     border-right: none;
-    width: 90%;
+    width: 100%;
 }
 .alert-banner {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-}
-#alert {
     font-size: 1em;
     background-color: rgba(26, 101, 136, 0.8);
     padding: .5rem 1rem;
@@ -116,16 +118,24 @@ Charts
 }
 ul {
     padding: 0;
+    margin: 0 .2rem 1rem;
+    width: 50%;
 }
 ul li {
     list-style: none;
     font-weight: bold;
+    margin-right: 1.5rem;
 }
 ul li:hover {
     background-color: lightpink;
     color: #777;
     padding: .5rem;
     border-radius: 40%;
+}
+.chrt-margin {
+    margin: 0 1rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 3px solid rgba(212, 210, 210, 0.8);
 }
 
 /* ------------------------------------------
@@ -139,8 +149,8 @@ Social Stats
 .social {
     background-color: rgba(26, 101, 136, 0.8);
     padding: .8rem;
-    margin: .8rem;
-    border-radius: 46%;
+    margin: 1rem;
+    border-radius: 50%;
 }
 .social-name {
     font-size: 1.5em;
@@ -149,7 +159,8 @@ Social Stats
 .social-data {
     font-size: 2.5rem;
 }
-.social-name, .social-data {
+.social-name, 
+.social-data {
     margin: 0 1rem;
     padding-top: .2rem;
 }
@@ -159,7 +170,7 @@ New Members and Recent Activity
 -------------------------------------------*/
 .members {
     margin: auto;
-    width: 85%;
+    width: 80%;
     text-align: center;
 }
 .members div p {
@@ -169,6 +180,9 @@ New Members and Recent Activity
 .members a {
     text-decoration: none;
     color: rgba(26, 101, 136, 0.8);
+}
+.arrow {
+    display: none;
 }
 hr {
     margin: .5rem 1rem;
@@ -180,13 +194,15 @@ hr {
 /* ------------------------------------------
 Message and Settings
 -------------------------------------------*/
-form, .settings {
+form, 
+.settings {
     margin: 1rem;
 }
 .form-field {
     padding: .8rem 1rem 1.5rem;
 }
-textarea, .label {
+textarea, 
+.label {
     margin: .8rem 0;
 }
 .button {
@@ -211,7 +227,8 @@ select {
 #cancel {
     background-color: rgba(100, 97, 97, 0.8);
 }
-#save, #cancel {
+#save, 
+#cancel {
     width: 49%;
 }
 
@@ -226,22 +243,142 @@ Media Queries
         'nav main';
     }
     .header {
+        padding: .5rem;
+    }
+    h1 {
+        flex: 1;
+    }
+    .user-image, 
+    .name {
+        margin-left: 1rem;
+    }
+    .nav {
+        flex-direction: column;
+    }
+    .nav-icon {
+        width: 5vw;
+    }
+    .alert-banner-close {
+        margin-left: 20rem;
+    }
+    ul {
+        margin: 0;
+    }
+    ul:last-child {
+        flex: -1;
+    }
+    .chrt-margin{
+        border: none;
+    }
+    .chrt-grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        border: 3px solid rgba(212, 210, 210, 0.8);
+        border-right: none;
+        border-left: none;
+    }
+    .daily {
+        border-right: 3px solid rgba(212, 210, 210, 0.8);
+        padding: 1rem;
+    }
+    .stats-flex-wrapper {
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(212, 210, 210, 0.8);
+    }
+    .social-box {
+       margin: 0 .3rem;
+    }
+    .social {
+        width: 6.5vw;
+        margin: 1rem .2rem;
+        padding: .6rem;
+        border-radius: 30px;
+    }
+    .members {
+        width: 88vw;
+        text-align: left;
+        padding: .2rem;
+    }
+    .arrow {
+        color: rgba(26, 101, 136, 0.8);
+        display: block;
+    }
+    .label {
+        flex: .3;
+    }
+
+     /* Grouped */
+     .chrt-overhead, 
+     .stats-flex-wrapper, 
+     .members, 
+     .members-info,
+     .activity {
+        display: flex;
+        flex-direction: row;
+    }
+    .nav, 
+    .chrt-overhead, 
+    .stats-flex-wrapper,
+    .members,
+    .members-info,
+    .activity {
+        align-items: center;
+    }
+    .nav, 
+    .stats-flex-wrapper,
+    .members,
+    .toggle {
         justify-content: flex-start;
+    }
+    .header, 
+    .chrt-overhead, 
+    .members-info,
+    .activity {
+        justify-content: space-between;
+    }
+    .members-info,
+    .activity {
+        flex: 1;
+        margin-left: .8rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    main {
-        display: grid;
-        grid-template-columns: 1fr;
+    .grid-container {
+        grid-template-columns: 80px 1fr;
     }
-    .traffic, .social-stats {
+    .main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .dashboard {
+        font-size: 2em;
+        grid-column: 1 / 3;
+        width: 100%;
+    }
+    .alert-banner {
+        width: 100vw;
+    }
+
+    .traffic, 
+    .social-stats {
         grid-column: 1 / span 2;
     }
-    .daily, .members, .messages {
+    .daily, 
+    .members, 
+    .messages {
         grid-column: 1 / span 1;
     }
-    .mobile-users, .recent-activity, .settings {
+    .mobile-users, 
+    .recent-activity, 
+    .settings {
         grid-column: 2 / span 1;
     }  
+
+    /* Grouped */
+    h1,
+    .name {
+        font-size: 2.5em;
+    }
 }
