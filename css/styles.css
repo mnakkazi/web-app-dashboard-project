@@ -66,6 +66,10 @@ h1,
 .bell-icon {
     width: 5%;
     margin-left: 4rem;
+    position: relative;
+}
+#notifications {
+    position: absolute;
 }
 .notify-dropdown {
     background-color: papayawhip;

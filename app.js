@@ -56,28 +56,28 @@ alertBanner.addEventListener('click', (e) => {
  const notifications = document.querySelector('#notifications');
 
 // --------- Trial Code for Dropdown ----------- 
-//  notifications.innerHTML = `<ol class="notify-dropdown">
-//   <li>Tim Sanders posted 24 hours ago</li>
-//   <li>Victoria Chambers commented on a post</li>
-//   <li class="exit">X</li>
-//   </ol>`;
-//   notifications.style.display = 'none';  
+ notifications.innerHTML = `<ol class="notify-dropdown">
+  <li>Tim Sanders posted 24 hours ago</li>
+  <li>Victoria Chambers commented on a post</li>
+  <li class="exit">X</li>
+  </ol>`;
+  notifications.style.display = 'none';  
 
  const notify = document.querySelector('svg');
  notify.addEventListener('click', (e) => {
-  alert(`Victoria Chambers commented on a post.`);
-  alert(`Tim Sanders posted 24 hours ago.`);
-    // notifications.style.display = 'block';  // ----- For Dropdown -----
+  // alert(`Victoria Chambers commented on a post.`);
+  // alert(`Tim Sanders posted 24 hours ago.`);
+    notifications.style.display = 'block';  // For Dropdown 
  });
 
- // ----------- Code to Exit Dropdown ------------
-//  const exit = document.querySelector('.exit');
-//  exit.addEventListener('click', (e) => {
-//   const exitBtn = e.target;
-//   if (exitBtn.classList.contains('exit')) {
-//     notifications.style.display = 'none';
-//   }
-//  });
+ // ----------- Exit Dropdown ------------
+ const exit = document.querySelector('.exit');
+ exit.addEventListener('click', (e) => {
+  const exitBtn = e.target;
+  if (exitBtn.classList.contains('exit')) {
+    notifications.style.display = 'none';
+  }
+ });
 
 /*-------------------
  Chart Widgets
