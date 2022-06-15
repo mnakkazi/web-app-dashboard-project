@@ -55,7 +55,7 @@ alertBanner.addEventListener('click', (e) => {
  -------------------*/ 
  const notifications = document.querySelector('#notifications');
 
-// --------- Trial Code for Dropdown ----------- 
+// --------- Dropdown Tab ----------- 
  notifications.innerHTML = `<ol class="notify-dropdown">
   <li>Tim Sanders posted 24 hours ago</li>
   <li>Victoria Chambers commented on a post</li>
@@ -65,9 +65,7 @@ alertBanner.addEventListener('click', (e) => {
 
  const notify = document.querySelector('svg');
  notify.addEventListener('click', (e) => {
-  // alert(`Victoria Chambers commented on a post.`);
-  // alert(`Tim Sanders posted 24 hours ago.`);
-    notifications.style.display = 'block';  // For Dropdown 
+    notifications.style.display = 'block';  
  });
 
  // ----------- Exit Dropdown ------------

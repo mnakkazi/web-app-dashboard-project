@@ -5,7 +5,6 @@ Base Styles
     box-sizing: border-box;
 }
 .grid-container {
-    max-width: 100vw;
     font-family: 'PT Sans', sans-serif;
     display: grid;
     grid-template-columns: 100%;
@@ -36,7 +35,8 @@ Base Styles
 .img-size {
     width: 15%;
 }
-.round-image {
+.round-image,
+.social {
     border-radius: 50%;
 }
 .white-fill {
@@ -61,7 +61,7 @@ Header
 }
 h1,
 .section-head {
-    font-size: 1em;
+    font-size: 1.2em;
 }
 .bell-icon {
     width: 5%;
@@ -89,12 +89,13 @@ h1,
     margin-top: .3rem;
     cursor: pointer;
 }
-.name {
-    margin-right: .5rem;
-}
 h1, 
 .user-image {
     margin-left: .5rem;
+}
+.name,
+li {
+    margin-right: .5rem;
 }
 .main-header, 
 .tab, 
@@ -118,7 +119,7 @@ Nav and Dashbord
 .alert-banner,
 .members,
 .notify-dropdown {
-    font-size: .7em;
+    font-size: .9em;
 }
 .tab {
     padding: 1.6rem;
@@ -150,7 +151,6 @@ ol {
 li {
     list-style: none;
     font-weight: bold;
-    margin-right: .5rem;
 }
 .traffic-chart-container,
 .daily-chart-container,
@@ -180,11 +180,9 @@ Social Stats
 .social {
     background-color: rgba(26, 101, 136, 0.8);
     padding: .5rem;
-    margin: 1rem;
-    border-radius: 50%;
 }
 .social-name {
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: rgba(26, 101, 136, 0.8);
 }
 .social-data {
@@ -192,8 +190,12 @@ Social Stats
 }
 .social-name, 
 .social-data {
-    margin: 0;
     padding-top: .2rem;
+}
+.social-name, 
+.social-data,
+.button {
+    margin: 0;
 }
 
 /* ------------------------------------------
@@ -218,8 +220,11 @@ New Members and Recent Activity
 hr {
     margin: .5rem 1rem;
     background-color: rgba(227, 227, 227, 0.8);
-    border: none;
     height: 3px;
+}
+hr,
+.button{
+    border: none;
 }
 
 /* ------------------------------------------
@@ -227,7 +232,8 @@ Message and Settings
 -------------------------------------------*/
 form, 
 .settings,
-#error-msg {
+#error-msg,
+.social {
     margin: 1rem;
 }
 .form-field {
@@ -237,7 +243,7 @@ input,
 textarea,
 select,
 .name {
-    font-size: .8em;
+    font-size: 1em;
 }
 textarea, 
 .label {
@@ -249,11 +255,9 @@ textarea,
     font-size: .9em;
 }
 .button {
-    margin: 0;
     padding: 1rem;
     background-color: rgba(26, 101, 136, 0.8);
     border-radius: 6px;
-    border: none;
 }
 #error-msg {
     padding: .8rem;
@@ -297,7 +301,7 @@ Bell-icon Keyframes
 }
 
 /* ----------------------
-Media Queries
+Media Queries - 768px
 ------------------------*/
 @media screen and (min-width: 768px) {
     .grid-container {
@@ -312,7 +316,7 @@ Media Queries
     h1 {
         flex: 1;
     }
-    .bell-icon:hover {
+    .bell-icon svg:hover {
         transform-origin: 50% 25%;
         animation: bell 1s ease-in-out backwards;
     }
@@ -340,13 +344,7 @@ Media Queries
     .exit {
         margin: 0;
     }
-    ul:last-child {
-        flex: -1;
-    }
-    li {
-        padding: .5rem;
-    }
-    li:hover {
+    ul li:hover {
         background-color: lightpink;
         color: #777;
         border-radius: 40%;
@@ -354,9 +352,7 @@ Media Queries
     .traffic-chart-container {
         width: 95%;
     }
-    .daily-chart-container {
-        width: 90%;
-    }
+    .daily-chart-container,
     .mobile-chart-container {
         width: 90%;
     }
@@ -376,7 +372,6 @@ Media Queries
     }
     .stats-flex-wrapper {
         padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(212, 210, 210, 0.8);
     }
     .social-box {
        margin: 0 .5rem;
@@ -402,10 +397,15 @@ Media Queries
         width: 55%;
     }
     .label {
-        flex: .3;
+        flex: .35;
     }
 
      /* Grouped */
+     .alert-banner,
+     .members,
+     .label {
+        font-size: 1.1em;
+     }
      .chrt-overhead, 
      .stats-flex-wrapper, 
      .members, 
@@ -440,7 +440,8 @@ Media Queries
         margin-left: .8rem;
     }
     .daily,
-    .mobile-users {
+    .mobile-users,
+    li {
         padding: .5rem;
     }
     .social-name,
@@ -449,11 +450,72 @@ Media Queries
     }
 }
 
+/* ----------------------
+Media Queries - 1024px
+------------------------*/
 @media screen and (min-width: 1024px) {
     .grid-container {
         grid-template-columns: 90px 1fr;
     }
-    .main {
-        display: grid;
+    .social-box {
+        width: 32%;
+    }
+    .members-activity {
+        padding-bottom: .2rem;
+        border-bottom: 2px solid rgba(212, 210, 210, 0.8);
+    }
+    .recent-activity .members {
+        padding-top: 0;
+    }
+    .recent-settings {
+        margin-bottom: 2rem;
+    }
+    .label {
+        flex: .5;
+    }
+    select {
+        width: 95%;
+    }
+    #save,
+    #cancel {
+        width: 47%;
+    }
+    hr {
+        width: 43vw;
+    }
+
+    /* Grouped */
+    .members,
+    .message,
+    .settings {
+        width: 45vw;
+        margin-left: .2rem;
+    }
+    .members-activity,
+    .message-settings {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .new-members,
+    .message {
+        border-right: 2px solid rgba(212, 210, 210, 0.8);
+    }
+    .new-members hr:last-child, 
+    .recent-activity hr:last-child,
+    .message hr {
+        display: none;
+    }
+    .recent-activity hr,
+    .message h3, 
+    .settings h3 {
+        margin-top: 0;
+    }
+    .settings h3,
+    .label,
+    select,
+    #save {
+        margin-left: .8rem;
     }
 }
