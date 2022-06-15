@@ -59,12 +59,31 @@ Header
     background-color: rgba(108, 196, 237, .8);
     justify-content: space-evenly;
 }
-h1 {
-    font-size: 1.5em;
+h1,
+.section-head {
+    font-size: 1em;
 }
 .bell-icon {
     width: 5%;
     margin-left: 4rem;
+}
+.notify-dropdown {
+    background-color: papayawhip;
+    color: #777;
+    padding: .6rem;
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 1;
+}
+.notify-dropdown li:nth-child(2) {
+    margin-top: .4rem;
+    padding-top: .4rem;
+    border-top: 1px dotted #777;
+}
+.exit {
+    text-align: center;
+    margin-top: .3rem;
+    cursor: pointer;
 }
 .name {
     margin-right: .5rem;
@@ -89,9 +108,16 @@ Nav and Dashbord
     justify-content: center;
 }
 .nav-icon {
-    margin: 1rem;
+    margin: .4rem .6rem;
+}
+.dashboard,
+.alert-banner,
+.members,
+.notify-dropdown {
+    font-size: .7em;
 }
 .tab {
+    padding: 1.6rem;
     border: 2px solid rgba(212, 210, 210, 0.8);
     border-top: none;
     border-right: none;
@@ -99,16 +125,12 @@ Nav and Dashbord
 }
 .alert-banner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 1em;
+    align-items: center;
     background-color: rgba(26, 101, 136, 0.8);
-    padding: .5rem 1rem;
-    margin: 1rem;
+    padding: .4rem .8rem;
+    margin: .6rem;
     border-radius: 5px;
-}
-.alert-banner-close {
-    margin-left: 2.5rem;
 }
 
 /* ------------------------------------------
@@ -117,21 +139,14 @@ Charts
 .section-head {
     text-transform: uppercase;
 }
-ul {
+ul, 
+ol {
     padding: 0;
-    margin: 0 .2rem 1rem;
-    width: 50%;
 }
-ul li {
+li {
     list-style: none;
     font-weight: bold;
-    margin-right: 1.5rem;
-}
-ul li:hover {
-    background-color: lightpink;
-    color: #777;
-    padding: .5rem;
-    border-radius: 40%;
+    margin-right: .5rem;
 }
 .traffic-chart-container,
 .daily-chart-container,
@@ -141,12 +156,18 @@ ul li:hover {
 .chrt-margin {
     margin: 0 1rem;
     padding-bottom: 1.4rem;
+}
+.chrt-margin,
+.social-stats {
     border-bottom: 3px solid rgba(212, 210, 210, 0.8);
 }
 
 /* ------------------------------------------
 Social Stats 
 -------------------------------------------*/
+.social-stats {
+    padding-bottom: .4rem;
+}
 .social-box {
     padding: .2rem;
     margin: .5rem 1rem;
@@ -154,20 +175,20 @@ Social Stats
 }
 .social {
     background-color: rgba(26, 101, 136, 0.8);
-    padding: .8rem;
+    padding: .5rem;
     margin: 1rem;
     border-radius: 50%;
 }
 .social-name {
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: rgba(26, 101, 136, 0.8);
 }
 .social-data {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 .social-name, 
 .social-data {
-    margin: 0 1rem;
+    margin: 0;
     padding-top: .2rem;
 }
 
@@ -201,15 +222,27 @@ hr {
 Message and Settings
 -------------------------------------------*/
 form, 
-.settings {
+.settings,
+#error-msg {
     margin: 1rem;
 }
 .form-field {
     padding: .8rem 1rem 1.5rem;
 }
+input,
+textarea,
+select,
+.name {
+    font-size: .8em;
+}
 textarea, 
 .label {
     margin: .8rem 0;
+}
+.button,
+.label,
+#error-msg {
+    font-size: .9em;
 }
 .button {
     margin: 0;
@@ -217,6 +250,12 @@ textarea,
     background-color: rgba(26, 101, 136, 0.8);
     border-radius: 6px;
     border: none;
+}
+#error-msg {
+    padding: .8rem;
+    background-color: papayawhip;
+    border-radius: 5px;
+    width: 90%;
 }
 .settings-head {
     margin-left: 0;
@@ -239,6 +278,21 @@ select {
 }
 
 /* ----------------------
+Bell-icon Keyframes 
+------------------------*/
+@keyframes bell {
+    0% {
+        transform: rotate(0);
+    }
+    30% {
+        transform: rotate(40deg) ;
+    }
+    60% {
+        transform: rotate(-40deg);
+    }
+}
+
+/* ----------------------
 Media Queries
 ------------------------*/
 @media screen and (min-width: 768px) {
@@ -254,6 +308,17 @@ Media Queries
     h1 {
         flex: 1;
     }
+    .bell-icon:hover {
+        transform-origin: 50% 25%;
+        animation: bell 1s ease-in-out backwards;
+    }
+    .notify-dropdown {
+        min-width: 220px;
+        padding: .2rem;
+    }
+    .exit {
+        padding: 0;
+    }
     .user-image, 
     .name {
         margin-left: 1rem;
@@ -267,11 +332,20 @@ Media Queries
     .alert-banner-close {
         margin-left: 20rem;
     }
-    ul {
+    ul,
+    .exit {
         margin: 0;
     }
     ul:last-child {
         flex: -1;
+    }
+    li {
+        padding: .5rem;
+    }
+    li:hover {
+        background-color: lightpink;
+        color: #777;
+        border-radius: 40%;
     }
     .traffic-chart-container {
         width: 95%;
@@ -303,10 +377,11 @@ Media Queries
     .social-box {
        margin: 0 .5rem;
        padding-right: .8rem;
+       width: 35%;
     }
     .social {
         width: 5vw;
-        margin: 1.5rem .8rem;
+        margin: 1rem .8rem;
         padding: .5rem;
         border-radius: 50%;
     }
@@ -318,6 +393,9 @@ Media Queries
     .arrow {
         color: rgba(26, 101, 136, 0.8);
         display: block;
+    }
+    #error-msg {
+        width: 55%;
     }
     .label {
         flex: .3;
@@ -370,5 +448,8 @@ Media Queries
 @media screen and (min-width: 1024px) {
     .grid-container {
         grid-template-columns: 90px 1fr;
+    }
+    .main {
+        display: grid;
     }
 }

@@ -1,19 +1,83 @@
 /*-------------------
  Alert Banner
  -------------------*/
-const alert = document.querySelector('#alert');
-alert.innerHTML = 
+const alertBanner = document.querySelector('#alert');
+alertBanner.innerHTML = 
 `<div class="alert-banner">
-    <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks
-    to complete</p>
-    <p class="alert-banner-close">x</p>
+    <p><strong>Alert:</strong> You have a few <strong>unread</strong> messages</p>
+    <p class="alert-banner-close">X</p>
 </div>`;
-alert.addEventListener('click', (e) => {
+alertBanner.addEventListener('click', (e) => {
     const element = e.target;
     if (element.classList.contains("alert-banner-close")) {
-        alert.style.display = 'none';
+        alertBanner.style.display = 'none';
     }
 });
+
+/*-------------------
+ Messaging Section
+ -------------------*/  
+ const user = document.querySelector('#user');
+ const message = document.querySelector('#message');
+ const send = document.querySelector('#send');
+ const errorBanner = document.querySelector('#error-msg');
+ errorBanner.style.display = 'none';
+
+ // This function will display error / success message for 3s then disappear
+ function errorDisplay () {
+  errorBanner.style.display = 'block';
+  setTimeout(function() {
+    document.querySelector('#error-msg').style.display = 'none';
+  }, 3000);
+ } 
+
+ send.addEventListener('click', (e) => {
+  e.preventDefault();
+    if (user.value === "" && message.value === "") {
+      errorBanner.textContent = `Please fill out user and message fields before sending`;
+      errorDisplay();
+    } else if (user.value === "" ) {
+      errorBanner.textContent = `Please fill out user field before sending`;
+      errorDisplay();
+    } else if (message.value === "" ) {
+      errorBanner.textContent = `Please fill out message field before sending`;
+      errorDisplay();
+    } else {
+      errorBanner.textContent = `Message successfully sent to: ${user.value}`;
+      errorDisplay();
+        user.value = "";
+        message.value = "";
+    }
+ });
+
+ /*-------------------
+ Notifications
+ -------------------*/ 
+ const notifications = document.querySelector('#notifications');
+
+// --------- Trial Code for Dropdown ----------- 
+//  notifications.innerHTML = `<ol class="notify-dropdown">
+//   <li>Tim Sanders posted 24 hours ago</li>
+//   <li>Victoria Chambers commented on a post</li>
+//   <li class="exit">X</li>
+//   </ol>`;
+//   notifications.style.display = 'none';  
+
+ const notify = document.querySelector('svg');
+ notify.addEventListener('click', (e) => {
+  alert(`Victoria Chambers commented on a post.`);
+  alert(`Tim Sanders posted 24 hours ago.`);
+    // notifications.style.display = 'block';  // ----- For Dropdown -----
+ });
+
+ // ----------- Code to Exit Dropdown ------------
+//  const exit = document.querySelector('.exit');
+//  exit.addEventListener('click', (e) => {
+//   const exitBtn = e.target;
+//   if (exitBtn.classList.contains('exit')) {
+//     notifications.style.display = 'none';
+//   }
+//  });
 
 /*-------------------
  Chart Widgets
@@ -114,23 +178,4 @@ const mobileData = {
     type: 'doughnut',
     data: mobileData,
     options: mobileOptions
-  });
-
-/*-------------------
- Messaging Section
- -------------------*/  
- const user = document.querySelector('#user');
- const message = document.querySelector('#message');
- const send = document.querySelector('#send');
-
- send.addEventListener('click', (e) => {
-    if (user.value === "" && message.value === "") {
-      alert('Please fill out user and message fields before sending');
-    } else if (user.value === "" ) {
-      alert('Please fill out user field before sending');
-    } else if (message.value === "" ) {
-      alert('Please fill out message field before sending');
-    } else {
-      alert(`Message successfully sent to: ${user.value}`);
-    } 
   });
