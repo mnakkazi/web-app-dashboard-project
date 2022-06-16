@@ -64,8 +64,10 @@ alertBanner.addEventListener('click', (e) => {
   notifications.style.display = 'none';  
 
  const notify = document.querySelector('svg');
+ const showNotify = document.querySelector('span');
  notify.addEventListener('click', (e) => {
     notifications.style.display = 'block';  
+    showNotify.style.display = 'none';
  });
 
  // ----------- Exit Dropdown ------------
@@ -115,10 +117,16 @@ alertBanner.addEventListener('click', (e) => {
     options: trafficOptions
   }); 
 
-// Bar Graph
-const dailyCanvas = document.getElementById('daily-chart');
+  // Hourly Chart 
+  // Daily Chart
+  // Weekly Chart 
+  // Monthly Chart 
 
-const dailyData =  {
+
+ // Bar Graph
+ const dailyCanvas = document.getElementById('daily-chart');
+
+ const dailyData =  {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
     datasets: [{
         label: '# of Hits',
@@ -143,22 +151,22 @@ const dailyData =  {
     options: dailyOptions
   });
 
-  // Doughnut Chart
-const mobileCanvas = document.getElementById('mobile-users-chart');
+    // Doughnut Chart
+  const mobileCanvas = document.getElementById('mobile-users-chart');
 
-const mobileData = {
-    labels: ["Desktop", "Tablet", "Phones"],
-    datasets: [{
-      label: '# of Users',
-      data: [2000, 550, 500],
-      borderWidth: 0,
-      backgroundColor: [
-        'rgba(11, 69, 96, 0.8)',
-        '#78CF82',
-        '#51B6C8'
-      ] 
-    }]
-  };
+  const mobileData = {
+      labels: ["Desktop", "Tablet", "Phones"],
+      datasets: [{
+        label: '# of Users',
+        data: [2000, 550, 500],
+        borderWidth: 0,
+        backgroundColor: [
+          'rgba(11, 69, 96, 0.8)',
+          '#78CF82',
+          '#51B6C8'
+        ] 
+      }]
+    };
 
   const mobileOptions = {
     aspectRatio: 1.9,

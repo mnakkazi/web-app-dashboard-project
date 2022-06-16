@@ -36,7 +36,8 @@ Base Styles
     width: 15%;
 }
 .round-image,
-.social {
+.social,
+span {
     border-radius: 50%;
 }
 .white-fill {
@@ -68,8 +69,12 @@ h1,
     margin-left: 4rem;
     position: relative;
 }
-#notifications {
+#notifications,
+span {
     position: absolute;
+}
+span {
+    background-color: rgb(54, 203, 54);
 }
 .notify-dropdown {
     background-color: papayawhip;
@@ -173,7 +178,6 @@ Social Stats
     padding-bottom: .4rem;
 }
 .social-box {
-    padding: .2rem;
     margin: .5rem 1rem;
     justify-content: flex-start;
 }
@@ -197,6 +201,11 @@ Social Stats
 .button {
     margin: 0;
 }
+.social-box,
+span,
+.members div p {
+    padding: .2rem;
+}
 
 /* ------------------------------------------
 New Members and Recent Activity 
@@ -208,7 +217,6 @@ New Members and Recent Activity
 }
 .members div p {
     margin: .2rem;
-    padding: .2rem;
 }
 .members a {
     text-decoration: none;
@@ -319,6 +327,9 @@ Media Queries - 768px
     .bell-icon svg:hover {
         transform-origin: 50% 25%;
         animation: bell 1s ease-in-out backwards;
+    }
+    span {
+        padding: .3rem;
     }
     .notify-dropdown {
         min-width: 220px;
