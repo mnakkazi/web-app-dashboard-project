@@ -75,6 +75,8 @@ span {
 }
 span {
     background-color: rgb(54, 203, 54);
+    /* bottom: 75%;      bottom: 15px;
+       left: 95%; */  /* left: 15px;*/
 }
 .notify-dropdown {
     background-color: papayawhip;
@@ -198,7 +200,8 @@ Social Stats
 }
 .social-name, 
 .social-data,
-.button {
+.button,
+.names {
     margin: 0;
 }
 .social-box,

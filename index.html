@@ -249,8 +249,9 @@
         <div class="message-settings">
             <section class="message">
                 <h3 class="section-head">Message User</h3>
-                <form action="index.html" method="post" class="flex flex-column">
+                <form autocomplete="off" id="search-form" class="flex flex-column">
                     <input type="search" id="user" placeholder="Search for User" class="field form-field">
+                    <ul id="recent-search-list" class="names"></ul>
                     <textarea name="message" id="message" placeholder="Message for User" class="field form-field"></textarea>
                     <button type="submit" id="send" class="section-head white button">Send</button>
                 </form>

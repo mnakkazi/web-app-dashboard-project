@@ -1,55 +1,3 @@
-/*-------------------
- Alert Banner
- -------------------*/
-const alertBanner = document.querySelector('#alert');
-alertBanner.innerHTML = 
-`<div class="alert-banner">
-    <p><strong>Alert:</strong> You have a few <strong>unread</strong> messages</p>
-    <p class="alert-banner-close">X</p>
-</div>`;
-alertBanner.addEventListener('click', (e) => {
-    const element = e.target;
-    if (element.classList.contains("alert-banner-close")) {
-        alertBanner.style.display = 'none';
-    }
-});
-
-/*-------------------
- Messaging Section
- -------------------*/  
- const user = document.querySelector('#user');
- const message = document.querySelector('#message');
- const send = document.querySelector('#send');
- const errorBanner = document.querySelector('#error-msg');
- errorBanner.style.display = 'none';
-
- // This function will display error / success message for 3s then disappear
- function errorDisplay () {
-  errorBanner.style.display = 'block';
-  setTimeout(function() {
-    document.querySelector('#error-msg').style.display = 'none';
-  }, 3000);
- } 
-
- send.addEventListener('click', (e) => {
-  e.preventDefault();
-    if (user.value === "" && message.value === "") {
-      errorBanner.textContent = `Please fill out user and message fields before sending`;
-      errorDisplay();
-    } else if (user.value === "" ) {
-      errorBanner.textContent = `Please fill out user field before sending`;
-      errorDisplay();
-    } else if (message.value === "" ) {
-      errorBanner.textContent = `Please fill out message field before sending`;
-      errorDisplay();
-    } else {
-      errorBanner.textContent = `Message successfully sent to: ${user.value}`;
-      errorDisplay();
-        user.value = "";
-        message.value = "";
-    }
- });
-
  /*-------------------
  Notifications
  -------------------*/ 
@@ -78,6 +26,71 @@ alertBanner.addEventListener('click', (e) => {
     notifications.style.display = 'none';
   }
  });
+
+ /*-------------------
+ Alert Banner
+ -------------------*/
+const alertBanner = document.querySelector('#alert');
+alertBanner.innerHTML = 
+`<div class="alert-banner">
+    <p><strong>Alert:</strong> You have a few <strong>unread</strong> messages</p>
+    <p class="alert-banner-close">X</p>
+</div>`;
+alertBanner.addEventListener('click', (e) => {
+    const element = e.target;
+    if (element.classList.contains("alert-banner-close")) {
+        alertBanner.style.display = 'none';
+    }
+});
+ 
+ /*-----------------------------
+ SearchField Autocomplete
+ -----------------------------*/ 
+ let names = ['Spencer James', 'Jackson Avery', 'Harry Potter', 'Hermoine Granger', 'Iris West', 'Meredith Grey', 'Lucas Sinclair', 'Dustin Henderson', 'Richard Webber', 'Choi Young']; 
+ // Names arranged in alphabetical order
+ let sortedNames = names.sort();
+ 
+ let searchField = document.querySelector('#user');
+ searchField.addEventListener('keyup', (e) => {
+ });
+
+/*-------------------
+ Messaging Section
+ -------------------*/  
+ const user = document.querySelector('#user');
+ const message = document.querySelector('#message');
+ const send = document.querySelector('#send');
+ const errorBanner = document.querySelector('#error-msg');
+ errorBanner.style.display = 'none';
+
+ // This function will display error / success message for 3s then disappear
+ function errorDisplay () {
+  errorBanner.style.display = 'block';
+  setTimeout(() => errorBanner.style.display = 'none', 3000);
+ } 
+
+ send.addEventListener('click', (e) => {
+  e.preventDefault();
+    if (user.value === "" && message.value === "") {
+      errorBanner.textContent = `Please fill out user and message fields before sending`;
+      errorDisplay();
+    } else if (user.value === "" ) {
+      errorBanner.textContent = `Please fill out user field before sending`;
+      errorDisplay();
+    } else if (message.value === "" ) {
+      errorBanner.textContent = `Please fill out message field before sending`;
+      errorDisplay();
+    } else {
+      errorBanner.textContent = `Message successfully sent to: ${user.value}`;
+      errorDisplay();
+        user.value = "";
+        message.value = "";
+    }
+ });
+
+ /*-------------------
+ Local Storage
+ -------------------*/  
 
 /*-------------------
  Chart Widgets
