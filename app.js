@@ -30,30 +30,19 @@
  /*-------------------
  Alert Banner
  -------------------*/
-const alertBanner = document.querySelector('#alert');
-alertBanner.innerHTML = 
-`<div class="alert-banner">
+ const alertBanner = document.querySelector('#alert');
+ alertBanner.innerHTML = 
+ `<div class="alert-banner">
     <p><strong>Alert:</strong> You have a few <strong>unread</strong> messages</p>
     <p class="alert-banner-close">X</p>
-</div>`;
-alertBanner.addEventListener('click', (e) => {
+ </div>`;
+ alertBanner.addEventListener('click', (e) => {
     const element = e.target;
     if (element.classList.contains("alert-banner-close")) {
         alertBanner.style.display = 'none';
     }
-});
- 
- /*-----------------------------
- SearchField Autocomplete
- -----------------------------*/ 
- let names = ['Spencer James', 'Jackson Avery', 'Harry Potter', 'Hermoine Granger', 'Iris West', 'Meredith Grey', 'Lucas Sinclair', 'Dustin Henderson', 'Richard Webber', 'Choi Young']; 
- // Names arranged in alphabetical order
- let sortedNames = names.sort();
- 
- let searchField = document.querySelector('#user');
- searchField.addEventListener('keyup', (e) => {
  });
-
+ 
 /*-------------------
  Messaging Section
  -------------------*/  
@@ -91,6 +80,21 @@ alertBanner.addEventListener('click', (e) => {
  /*-------------------
  Local Storage
  -------------------*/  
+ const timeZone = document.querySelector('.select');
+ const save = document.getElementById('save');
+ const cancel = document.getElementById('cancel');
+ 
+ save.addEventListener('click', (e) =>{
+  const zone = timeZone.value;
+    if (zone && zone !== 'Select a Timezone') {
+      localStorage.setItem(zone, zone);
+      location.reload();
+    }
+ });
+
+ cancel.addEventListener('click', (e) => {
+    location.reload();
+ });
 
 /*-------------------
  Chart Widgets

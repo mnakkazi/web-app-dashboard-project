@@ -247,9 +247,24 @@
         <div class="message-settings">
             <section class="message">
                 <h3 class="section-head">Message User</h3>
-                <form autocomplete="off" id="search-form" class="flex flex-column">
-                    <input type="search" id="user" placeholder="Search for User" class="field form-field">
-                    <ul id="recent-search-list" class="names"></ul>
+                <form id="search-form" class="flex flex-column">
+                    <input type="search" id="user" placeholder="Search for User" class="field form-field" list="names">
+                    <datalist id="names">
+                        <option>Jordan Baker</option>
+                        <option>Harry Potter</option>
+                        <option>Hermoine Granger</option>
+                        <option>Ben Hargreevesr</option>
+                        <option>Layla Keating</option>
+                        <option>Lucas Sinclair</option>
+                        <option>Meredith Grey</option>
+                        <option>Allison Chestnut</option>
+                        <option>Rainbow Johnson</option>
+                        <option>Eric Effiong</option>
+                        <option>Melanie Bailey</option>
+                        <option>Rick Grimes</option>
+                        <option>Geffri Union</option>
+                        <option>Kehlani Lawrence</option>
+                    </datalist>
                     <textarea name="message" id="message" placeholder="Message for User" class="field form-field"></textarea>
                     <button type="submit" id="send" class="section-head white button">Send</button>
                 </form>
@@ -286,7 +301,7 @@
                     </label>
                 </div>
     
-                <select class="field">
+                <select class="field select">
                     <option disabled selected>Select a Timezone</option>
                     <option value="central">Central</option>
                     <option value="eastern">Eastern</option>
@@ -295,7 +310,7 @@
         
                 <div>
                     <button type="submit" id="save" class="section-head white button">Save</button>
-                    <button type="submit" id="cancel" class="section-head white button">Cancel</button>
+                    <button type="reset" id="cancel" class="section-head white button">Cancel</button>
                 </div> 
             </section>
         </div>
